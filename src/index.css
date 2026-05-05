@@ -1,0 +1,43 @@
+@import "tailwindcss";
+
+@theme {
+  --color-mushaf-bg: #fdf8eb;
+  --color-mushaf-border: #d9ccae;
+  --color-mushaf-text: #1f1a11;
+  --color-mushaf-accent: #b79c6a;
+  --color-mushaf-dark: #5f4b26;
+
+  --font-quran: "Amiri Quran", "KFGQPC Uthmanic Script HAFS", "Scheherazade New", serif;
+}
+
+@layer base {
+  body {
+    @apply bg-slate-50 antialiased overflow-x-hidden;
+    margin: 0;
+  }
+
+  /* Custom Scrollbar for Mushaf Pages */
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 6px;
+  }
+  .custom-scrollbar::-webkit-scrollbar-track {
+    @apply bg-mushaf-bg;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    @apply bg-mushaf-border rounded-full;
+  }
+  .custom-scrollbar::-webkit-scrollbar-thumb:hover {
+    @apply bg-mushaf-accent;
+  }
+}
+
+/* Ensure right-to-left justification works correctly with Arabic text */
+[dir="rtl"] {
+  text-align: justify;
+  text-justify: inter-word;
+  text-align-last: right;
+}
+
+.font-quran {
+  word-spacing: 0.1em;
+}
