@@ -12,11 +12,11 @@
 
 @layer base {
   body {
-    @apply bg-slate-50 antialiased overflow-x-hidden;
+    @apply bg-slate-100 antialiased overflow-x-hidden;
     margin: 0;
   }
 
-  /* Custom Scrollbar for Mushaf Pages */
+  /* Custom Scrollbar */
   .custom-scrollbar::-webkit-scrollbar {
     width: 6px;
   }
@@ -31,13 +31,28 @@
   }
 }
 
-/* Ensure right-to-left justification works correctly with Arabic text */
-[dir="rtl"] {
+/* 15 Lines Fixed Layout */
+.mushaf-page-content {
+  height: 840px; /* Fixed height for 15 lines */
+  line-height: 56px; /* 840 / 15 = 56px per line */
+  display: block;
   text-align: justify;
   text-justify: inter-word;
-  text-align-last: right;
+  text-align-last: center;
+}
+
+[dir="rtl"] {
+  direction: rtl;
 }
 
 .font-quran {
-  word-spacing: 0.1em;
+  word-spacing: -0.05em; /* Tighter for better justification */
 }
+
+/* Custom Markdown Styles (Replacement for @tailwindcss/typography) */
+.changelog-content h1 { @apply text-2xl font-bold mb-4 mt-6; }
+.changelog-content h2 { @apply text-xl font-bold mb-3 mt-5 border-b pb-1; }
+.changelog-content h3 { @apply text-lg font-bold mb-2 mt-4; }
+.changelog-content ul { @apply list-disc list-inside mb-4 space-y-1; }
+.changelog-content li { @apply text-sm; }
+.changelog-content p { @apply mb-3 text-sm leading-relaxed; }
