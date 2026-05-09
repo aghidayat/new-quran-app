@@ -1,6 +1,11 @@
 # Changelog
 
 
+## [0.0.2] - 6 Mei 2026
+### Perubahan dalam versi ini:
+- Pembaruan rutin dan optimasi.
+
+
 ## [0.0.1] - 5 Mei 2026
 ### Ditambahkan
 - Inisialisasi Mushaf Desktop Indonesia.

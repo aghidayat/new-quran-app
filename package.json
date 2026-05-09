@@ -1,7 +1,7 @@
 {
   "name": "quran-desktop",
   "private": true,
-  "version": "0.0.1",
+  "version": "0.0.2",
   "type": "module",
   "scripts": {
     "dev": "vite",
@@ -9,7 +9,7 @@
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",
-    "deploy": "npm version patch && node scripts/update-changelog.js && npm run build && vercel --prod"
+    "deploy": "npm version patch --no-git-tag-version && node scripts/update-changelog.js && npm run build && vercel --prod"
   },
   "dependencies": {
     "dexie": "^4.4.2",
@@ -22,6 +22,7 @@
   "devDependencies": {
     "@tailwindcss/postcss": "^4.2.4",
     "@tailwindcss/typography": "^0.5.19",
+    "@types/react": "^19.2.14",
     "@vitejs/plugin-react": "^4.2.1",
     "autoprefixer": "^10.5.0",
     "eslint": "^8.57.0",
@@ -29,6 +30,7 @@
     "eslint-plugin-react-refresh": "^0.4.6",
     "postcss": "^8.5.14",
     "tailwindcss": "^4.2.4",
+    "types": "^0.1.1",
     "vercel": "^53.1.1",
     "vite": "^4.5.3"
   }

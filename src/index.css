@@ -7,7 +7,16 @@
   --color-mushaf-accent: #b79c6a;
   --color-mushaf-dark: #5f4b26;
 
-  --font-quran: "Amiri Quran", "KFGQPC Uthmanic Script HAFS", "Scheherazade New", serif;
+  --font-quran: "Amiri Quran", "Scheherazade New", serif;
+}
+
+/* Authentic Quranic Font Setup */
+@font-face {
+  font-family: 'Amiri Quran';
+  src: url('https://fonts.gstatic.com/s/amiri/v26/J7afF9i7Vn9GZNCvK7uv.woff2') format('woff2');
+  font-weight: normal;
+  font-style: normal;
+  font-display: swap;
 }
 
 @layer base {
@@ -16,43 +25,29 @@
     margin: 0;
   }
 
-  /* Custom Scrollbar */
+  /* Custom Scrollbar for internal page scrolling */
   .custom-scrollbar::-webkit-scrollbar {
-    width: 6px;
+    width: 4px;
   }
   .custom-scrollbar::-webkit-scrollbar-track {
     @apply bg-mushaf-bg;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb {
-    @apply bg-mushaf-border rounded-full;
+    @apply bg-mushaf-dark/20 rounded-full;
   }
   .custom-scrollbar::-webkit-scrollbar-thumb:hover {
-    @apply bg-mushaf-accent;
+    @apply bg-mushaf-dark/40;
   }
 }
 
-/* 15 Lines Fixed Layout */
-.mushaf-page-content {
-  height: 840px; /* Fixed height for 15 lines */
-  line-height: 56px; /* 840 / 15 = 56px per line */
-  display: block;
-  text-align: justify;
-  text-justify: inter-word;
-  text-align-last: center;
+/* Immersive Full-Body Spread */
+.mushaf-page-container {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
 }
 
-[dir="rtl"] {
+.mushaf-container {
+  font-family: var(--font-quran);
   direction: rtl;
 }
-
-.font-quran {
-  word-spacing: -0.05em; /* Tighter for better justification */
-}
-
-/* Custom Markdown Styles (Replacement for @tailwindcss/typography) */
-.changelog-content h1 { @apply text-2xl font-bold mb-4 mt-6; }
-.changelog-content h2 { @apply text-xl font-bold mb-3 mt-5 border-b pb-1; }
-.changelog-content h3 { @apply text-lg font-bold mb-2 mt-4; }
-.changelog-content ul { @apply list-disc list-inside mb-4 space-y-1; }
-.changelog-content li { @apply text-sm; }
-.changelog-content p { @apply mb-3 text-sm leading-relaxed; }
